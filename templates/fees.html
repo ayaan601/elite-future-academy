@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2>Add Fees</h2>
+    <div class="card p-3 mb-4">
+        <form action="{{ url_for('add_fees') }}" method="POST" class="row g-3">
+            <div class="col-md-3">
+                <label>Student</label>
+                <select name="student_id" class="form-select" required>
+                    <option value="">Select Student</option>
+                    {% for s in all_students %}
+                    <option value="{{ s[0] }}">{{ s[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Total Fees</label>
+                <input type="number" name="total_fees" class="form-control" placeholder="50000" required>
+            </div>
+            <div class="col-md-3">
+                <label>Paid Fees</label>
+                <input type="number" name="paid_fees" class="form-control" placeholder="20000" required>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">Add Fees</button>
+            </div>
+        </form>
+    </div>
+
+    <h3>Fees List</h3>
+    <div class="card p-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Student Name</th>
+                    <th>Roll No</th>
+                    <th>Total Fees</th>
+                    <th>Paid Fees</th>
+                    <th>Due Fees</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for f in fees %}
+                <tr>
+                    <td>{{ f[0] }}</td>
+                    <td>{{ f[1] }}</td>
+                    <td>{{ f[2] }}</td>
+                    <td>{{ f[3] }}</td>
+                    <td>{{ f[4] }}</td>
+                    <td>{{ f[5] }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="6" class="text-center">No fees record found</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

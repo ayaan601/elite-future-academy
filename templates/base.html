@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elite Future Academy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="sidebar">
+  <div class="school-brand">
+    <img src="https://cdn-icons-png.flaticon.com/512/2602/2602412.png" alt="logo">
+    <h2>ELITE FUTURE<br><span>ACADEMY</span></h2>
+  </div>
+  <a href="/"><i class="fas fa-th-large"></i> Dashboard</a>
+  <a href="/students"><i class="fas fa-user-graduate"></i> Students</a>
+  <a href="/teachers"><i class="fas fa-chalkboard-teacher"></i> Teachers</a>
+  <a href="/attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
+  <a href="/fees"><i class="fas fa-wallet"></i> Fees</a>
+  <a href="/logout" style="color:#ff6b6b; margin-top:25px;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  <div class="sidebar-footer">© 2026 Elite Future</div>
+</div>
+
+<div class="main-content">
+  {% block content %}{% endblock %}
+</div>
+</body>
+</html>
